@@ -1,0 +1,28 @@
+# Environment & local credentials
+.env
+.env.backup
+.env.local
+
+# Vendor & Composer
+vendor/
+composer.phar
+
+# Storage & Logs
+storage/logs/*.log
+storage/database/*.sqlite
+storage/database/*.sqlite-journal
+!storage/database/.gitkeep
+!storage/logs/.gitkeep
+!public/uploads/avatars/.gitkeep
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# OS & Temp
+*.tmp
+*.bak
