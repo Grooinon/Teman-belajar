@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TemanBelajar — Platform Tutor Sebaya Mahasiswa Kampus</title>
+    <meta name="description" content="TemanBelajar adalah platform tutor sebaya mahasiswa untuk mempermudah pencarian tutor, penjadwalan sesi belajar kolaboratif, dan peningkatan pemahaman akademik kampus.">
+    <meta name="author" content="TemanBelajar Team">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom Theme Styling -->
+    <link rel="stylesheet" href="assets/css/demo.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-tb sticky-top py-2">
+        <div class="container">
+            <!-- Brand Logo -->
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+                <span class="brand-logo-box">
+                    <i class="bi bi-mortarboard-fill fs-5"></i>
+                </span>
+                <span class="text-dark fs-5 tracking-tight">Teman<span class="text-primary">Belajar</span></span>
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3 gap-lg-1">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                            <i class="bi bi-house-door me-1"></i> Beranda
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tutors.html">
+                            <i class="bi bi-search me-1"></i> Cari Tutor
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="how-it-works.html">
+                            <i class="bi bi-lightbulb me-1"></i> Cara Kerja
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <i class="bi bi-info-circle me-1"></i> Tentang
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Right Action Buttons (Handled by demo-app.js) -->
+                <div class="d-flex align-items-center gap-2" id="navbarAuthArea">
+                    <!-- Populated dynamically by syncNavbarState() -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1">
+        <!-- HERO SECTION -->
+        <section class="hero-gradient py-5 py-lg-6">
+            <div class="container py-4">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <div class="d-inline-flex align-items-center gap-2 px-3 py-1 mb-3 rounded-pill bg-white border shadow-sm small text-primary fw-semibold">
+                            <i class="bi bi-stars"></i> Platform Tutor Sebaya Mahasiswa Kampus
+                        </div>
+                        <h1 class="display-4 fw-extrabold text-dark mb-3 lh-sm">
+                            Temukan Teman Belajar yang <span class="text-primary">Tepat untukmu.</span>
+                        </h1>
+                        <p class="lead text-secondary mb-4">
+                            Tingkatkan pemahaman mata kuliah sulit melalui bimbingan santai bersama rekan mahasiswa berprestasi. Belajar lebih fleksibel, tanpa rasa canggung, dan saling mendukung kemajuan akademik kampus.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 mb-4">
+                            <a href="tutors.html" class="btn btn-tb-primary btn-lg px-4 py-3">
+                                <i class="bi bi-search"></i> Cari Tutor Sekarang
+                            </a>
+                            <button type="button" class="btn btn-tb-outline btn-lg px-4 py-3" onclick="switchDemoRole('tutor')">
+                                <i class="bi bi-mortarboard"></i> Coba Mode Tutor
+                            </button>
+                        </div>
+                        <div class="d-flex flex-wrap align-items-center gap-4 text-muted small pt-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-success"></i> 100% Mahasiswa Terverifikasi
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-success"></i> Opsi Bimbingan Gratis
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-check-circle-fill text-success"></i> Daring atau Tatap Muka
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual Card / Quick Search -->
+                    <div class="col-lg-5">
+                        <div class="tb-card p-4 bg-white shadow-lg border-0">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="fw-bold mb-0 text-dark">
+                                    <i class="bi bi-compass text-primary me-2"></i>Cari Bimbingan Cepat
+                                </h5>
+                                <span class="badge bg-primary-subtle text-primary fw-semibold">Terhubung Langsung</span>
+                            </div>
+                            <form action="tutors.html" method="GET" class="d-flex flex-column gap-3">
+                                <div>
+                                    <label class="form-label small fw-semibold text-secondary">Cari Mata Kuliah / Nama Tutor</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-search"></i></span>
+                                        <input type="text" name="q" class="form-control border-start-0 ps-0" placeholder="Misal: Web, Basis Data, Struktur Data...">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="form-label small fw-semibold text-secondary">Program Studi</label>
+                                    <select name="program_id" id="quickProgramSelect" class="form-select">
+                                        <option value="">Semua Program Studi</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="form-label small fw-semibold text-secondary">Metode Belajar</label>
+                                    <select name="method" class="form-select">
+                                        <option value="all">Semua Metode (Online & Offline)</option>
+                                        <option value="online">Online (Google Meet / Zoom)</option>
+                                        <option value="offline">Tatap Muka (Kampus / Perpustakaan)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="form-label small fw-semibold text-secondary">Biaya Sesi</label>
+                                    <select name="price_type" class="form-select">
+                                        <option value="">Semua (Gratis & Berbayar)</option>
+                                        <option value="free">Bimbingan Gratis (Sukarela)</option>
+                                        <option value="paid">Berbayar Ringan</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-tb-primary w-100 py-2 mt-2">
+                                    <i class="bi bi-arrow-right-circle me-1"></i> Telusuri Tutor Tersedia
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIVE PLATFORM STATISTICS -->
+        <section class="py-4 bg-white border-bottom">
+            <div class="container">
+                <div class="row g-3 text-center">
+                    <div class="col-6 col-md-3">
+                        <div class="hero-stats-card h-100">
+                            <div class="fs-2 fw-bold text-primary mb-1" id="statStudentsCount">6</div>
+                            <div class="small text-muted fw-medium">Mahasiswa Terdaftar</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="hero-stats-card h-100">
+                            <div class="fs-2 fw-bold text-primary mb-1" id="statTutorsCount">3</div>
+                            <div class="small text-muted fw-medium">Tutor Sebaya Aktif</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="hero-stats-card h-100">
+                            <div class="fs-2 fw-bold text-primary mb-1" id="statSubjectsCount">10</div>
+                            <div class="small text-muted fw-medium">Mata Kuliah Bimbingan</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="hero-stats-card h-100">
+                            <div class="fs-2 fw-bold text-success mb-1" id="statSessionsCount">12</div>
+                            <div class="small text-muted fw-medium">Sesi Belajar Tuntas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK SUBJECT CATEGORIES -->
+        <section class="py-4 bg-light">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                    <span class="small fw-bold text-dark me-2"><i class="bi bi-fire text-danger me-1"></i>Topik Populer:</span>
+                    <a href="tutors.html?q=Web" class="subject-pill"><i class="bi bi-code-slash"></i> Pemrograman Web</a>
+                    <a href="tutors.html?q=Basis Data" class="subject-pill"><i class="bi bi-database"></i> Basis Data & SQL</a>
+                    <a href="tutors.html?q=Algoritma" class="subject-pill"><i class="bi bi-cpu"></i> Algoritma</a>
+                    <a href="tutors.html?q=Struktur Data" class="subject-pill"><i class="bi bi-diagram-3"></i> Struktur Data</a>
+                    <a href="tutors.html?q=Jaringan" class="subject-pill"><i class="bi bi-hdd-network"></i> Jaringan Komputer</a>
+                    <a href="tutors.html?q=Kecerdasan Buatan" class="subject-pill"><i class="bi bi-robot"></i> AI & Machine Learning</a>
+                    <a href="tutors.html?q=Matematika" class="subject-pill"><i class="bi bi-calculator"></i> Matematika Diskrit</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS SECTION -->
+        <section class="py-5 bg-white" id="cara-kerja">
+            <div class="container py-3">
+                <div class="text-center max-w-2xl mx-auto mb-5">
+                    <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-1 rounded-pill mb-2">Alur Pembelajaran</span>
+                    <h2 class="fw-bold text-dark">Bagaimana Cara Kerja TemanBelajar?</h2>
+                    <p class="text-secondary">Proses sederhana menghubungkan mahasiswa pemelajar dengan tutor sebaya yang berpengalaman.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="tb-card p-4 h-100 bg-white">
+                            <div class="icon-box-primary mb-3">
+                                <span class="fw-bold fs-5">1</span>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Cari Tutor</h5>
+                            <p class="text-secondary small mb-0">Temukan tutor berdasarkan mata kuliah, program studi, tarif, atau metode belajar yang cocok untuk Anda.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="tb-card p-4 h-100 bg-white">
+                            <div class="icon-box-primary mb-3">
+                                <span class="fw-bold fs-5">2</span>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Ajukan Jadwal</h5>
+                            <p class="text-secondary small mb-0">Pilih slot waktu belajar, durasi, topik bahasan, dan metode belajar (tatap muka atau online).</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="tb-card p-4 h-100 bg-white">
+                            <div class="icon-box-primary mb-3">
+                                <span class="fw-bold fs-5">3</span>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Belajar Bersama</h5>
+                            <p class="text-secondary small mb-0">Setelah disetujui, ikuti sesi bimbingan interaktif, bahas tugas, dan bedah materi sampai paham.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="tb-card p-4 h-100 bg-white">
+                            <div class="icon-box-primary mb-3">
+                                <span class="fw-bold fs-5">4</span>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Beri Ulasan</h5>
+                            <p class="text-secondary small mb-0">Beri ulasan dan rating objektif untuk membantu tutor membangun reputasi akademik terpercaya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED TUTORS SECTION -->
+        <section class="py-5 bg-light">
+            <div class="container py-3">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 gap-2">
+                    <div>
+                        <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-1 rounded-pill mb-2">Rekomendasi Terbaik</span>
+                        <h2 class="fw-bold text-dark mb-1">Tutor Sebaya Pilihan</h2>
+                        <p class="text-secondary mb-0">Mahasiswa berprestasi yang siap membimbing materi perkuliahan Anda.</p>
+                    </div>
+                    <div>
+                        <a href="tutors.html" class="btn btn-tb-outline">
+                            Lihat Semua Tutor <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row g-4" id="featuredTutorsContainer">
+                    <!-- Populated dynamically by script -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS / STUDENT REVIEWS -->
+        <section class="py-5 bg-white">
+            <div class="container py-3">
+                <div class="text-center max-w-2xl mx-auto mb-5">
+                    <span class="badge bg-success-subtle text-success fw-semibold px-3 py-1 rounded-pill mb-2">Testimoni Nyata</span>
+                    <h2 class="fw-bold text-dark">Apa Kata Rekan Mahasiswa?</h2>
+                    <p class="text-secondary">Pengalaman nyata mahasiswa yang berhasil meningkatkan nilai akademik melalui TemanBelajar.</p>
+                </div>
+
+                <div class="row g-4" id="homeReviewsContainer">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="py-5" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #4338ca 100%);">
+            <div class="container py-4 text-center text-white">
+                <span class="badge bg-white text-primary fw-bold px-3 py-1 rounded-pill mb-3">Kolaborasi Akademik</span>
+                <h2 class="display-6 fw-bold mb-3 text-white">Siap Raih Prestasi Akademik Bersama?</h2>
+                <p class="lead text-white-50 max-w-2xl mx-auto mb-4" style="max-width: 650px;">
+                    Jangan biarkan materi kuliah yang sulit menghambat studimu. Bergabunglah bersama ratusan mahasiswa lain yang saling belajar dan berkembang.
+                </p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="tutors.html" class="btn btn-light btn-lg px-4 py-3 fw-bold text-primary shadow">
+                        <i class="bi bi-search me-1"></i> Cari Tutor Sekarang
+                    </a>
+                    <button type="button" class="btn btn-outline-light btn-lg px-4 py-3 fw-semibold" onclick="switchDemoRole('tutor')">
+                        <i class="bi bi-mortarboard me-1"></i> Daftar Jadi Tutor
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-tb mt-auto pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <!-- Brand Column -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <span class="brand-logo-box">
+                            <i class="bi bi-mortarboard-fill fs-5"></i>
+                        </span>
+                        <span class="text-white fs-5 fw-bold">Teman<span class="text-primary">Belajar</span></span>
+                    </div>
+                    <p class="small text-secondary mb-3">
+                        "Belajar Bersama, Berkembang Bersama."<br>
+                        Platform tutor sebaya berbasis kolaborasi akademik mahasiswa kampus untuk mempermudah pemahaman mata kuliah dan meningkatkan prestasi bersama.
+                    </p>
+                    <div class="d-flex gap-2">
+                        <a href="https://github.com" target="_blank" class="btn btn-sm btn-outline-secondary rounded-circle p-2 text-white" title="GitHub Repository">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="contact.html" class="btn btn-sm btn-outline-secondary rounded-circle p-2 text-white" title="Kontak Bantuan">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6 class="text-white fw-bold mb-3">Navigasi</h6>
+                    <ul class="list-unstyled small d-flex flex-column gap-2 mb-0">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="tutors.html">Cari Tutor</a></li>
+                        <li><a href="how-it-works.html">Cara Kerja</a></li>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support Links -->
+                <div class="col-lg-3 col-md-6 col-6">
+                    <h6 class="text-white fw-bold mb-3">Bantuan & Informasi</h6>
+                    <ul class="list-unstyled small d-flex flex-column gap-2 mb-0">
+                        <li><a href="how-it-works.html#faq">Tanya Jawab (FAQ)</a></li>
+                        <li><a href="contact.html">Hubungi Dukungan</a></li>
+                        <li><a href="about.html#privacy">Kebijakan Privasi</a></li>
+                        <li><a href="about.html#terms">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academic Info -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-white fw-bold mb-3">Informasi Demo Front-End</h6>
+                    <p class="small text-secondary mb-2">
+                        <i class="bi bi-building me-1 text-primary"></i> Sistem Informasi Universitas
+                    </p>
+                    <p class="small text-secondary mb-2">
+                        <i class="bi bi-shield-check me-1 text-success"></i> Standar UI Interaktif, LocalStorage State & Glassmorphism
+                    </p>
+                    <span class="badge bg-secondary text-light fw-normal py-1 px-2">Versi Demo Standalone 1.0</span>
+                </div>
+            </div>
+
+            <hr class="border-secondary my-4">
+
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small text-secondary">
+                <div>
+                    &copy; 2026 <strong>TemanBelajar</strong>. Seluruh Hak Cipta Dilindungi.
+                </div>
+                <div>
+                    Dibuat untuk ekosistem pembelajaran kolaboratif mahasiswa.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Demo Data & Scripts -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/demo-app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const data = getTBData();
+
+            // Populate Study Programs in Quick Search
+            const progSelect = document.getElementById('quickProgramSelect');
+            if (progSelect) {
+                data.studyPrograms.forEach(p => {
+                    const opt = document.createElement('option');
+                    opt.value = p.id;
+                    opt.textContent = `${p.name} (${p.code})`;
+                    progSelect.appendChild(opt);
+                });
+            }
+
+            // Populate Statistics
+            document.getElementById('statStudentsCount').textContent = data.users.filter(u => u.role === 'student').length;
+            document.getElementById('statTutorsCount').textContent = data.tutors.length;
+            document.getElementById('statSubjectsCount').textContent = data.studySubjects.length;
+            document.getElementById('statSessionsCount').textContent = data.sessions.filter(s => s.status === 'completed').length + 11;
+
+            // Render Featured Tutors
+            const tutorsContainer = document.getElementById('featuredTutorsContainer');
+            if (tutorsContainer) {
+                tutorsContainer.innerHTML = data.tutors.map(tutor => `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="tb-card p-4 h-100 d-flex flex-column bg-white">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="avatar-placeholder avatar-tutor" style="width: 56px; height: 56px; font-size: 1.3rem;">
+                                    ${tutor.full_name.charAt(0)}
+                                </div>
+                                <div class="overflow-hidden">
+                                    <h6 class="fw-bold mb-0 text-dark text-truncate" title="${escapeHtml(tutor.full_name)}">${escapeHtml(tutor.full_name)}</h6>
+                                    <small class="text-muted d-block text-truncate">${escapeHtml(tutor.program_name)}</small>
+                                    <span class="badge badge-verified mt-1">
+                                        <i class="bi bi-patch-check-fill"></i> Terverifikasi
+                                    </span>
+                                </div>
+                            </div>
+
+                            <p class="small text-secondary mb-3 flex-grow-1" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                                "${escapeHtml(tutor.headline)}"
+                            </p>
+
+                            <!-- Subject badges -->
+                            <div class="mb-3 d-flex flex-wrap gap-1">
+                                ${tutor.subjects.slice(0, 2).map(s => `
+                                    <span class="badge bg-light text-dark border small fw-normal">${escapeHtml(s.name)}</span>
+                                `).join('')}
+                                ${tutor.subjects.length > 2 ? `<span class="badge bg-light text-muted border small fw-normal">+${tutor.subjects.length - 2} lainnya</span>` : ''}
+                            </div>
+
+                            <hr class="my-2 border-light-subtle">
+
+                            <!-- Rating & Price -->
+                            <div class="d-flex justify-content-between align-items-center mb-3 pt-1">
+                                <div class="d-flex align-items-center gap-1 small">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <span class="fw-bold text-dark">${tutor.avg_rating.toFixed(1)}</span>
+                                    <span class="text-muted">(${tutor.review_count} ulasan)</span>
+                                </div>
+                                <div>
+                                    ${tutor.is_free ? `
+                                        <span class="badge bg-success-subtle text-success fw-bold px-2 py-1">Gratis</span>
+                                    ` : `
+                                        <span class="badge bg-primary-subtle text-primary fw-bold px-2 py-1">${formatRupiah(tutor.hourly_rate)}/sesi</span>
+                                    `}
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="d-flex gap-2">
+                                <a href="tutor-detail.html?id=${tutor.id}" class="btn btn-outline-secondary btn-sm flex-grow-1 fw-semibold">
+                                    Profil Lengkap
+                                </a>
+                                <button type="button" class="btn btn-tb-primary btn-sm flex-grow-1 fw-semibold" onclick="openBookingModal(${tutor.id})">
+                                    <i class="bi bi-calendar-plus me-1"></i> Pesan Sesi
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Render Reviews
+            const reviewsContainer = document.getElementById('homeReviewsContainer');
+            if (reviewsContainer) {
+                reviewsContainer.innerHTML = data.reviews.slice(0, 3).map(rev => `
+                    <div class="col-md-4">
+                        <div class="tb-card p-4 h-100 bg-white d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="star-rating">
+                                        ${'<i class="bi bi-star-fill"></i>'.repeat(rev.rating)}
+                                    </div>
+                                    <span class="badge bg-light text-muted border small">${escapeHtml(rev.subject_name)}</span>
+                                </div>
+                                <p class="text-secondary small fst-italic mb-3">"${escapeHtml(rev.comment)}"</p>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 pt-2 border-top">
+                                <div class="avatar-placeholder" style="width: 32px; height: 32px; font-size: 0.85rem;">
+                                    ${rev.student_name.charAt(0)}
+                                </div>
+                                <div>
+                                    <div class="fw-bold text-dark small">${escapeHtml(rev.student_name)}</div>
+                                    <small class="text-muted">Tutor: ${escapeHtml(rev.tutor_name)}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+</html>

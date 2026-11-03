@@ -10,7 +10,7 @@ Dokumen ini berisi panduan skenario pengujian manual langkah-demi-langkah (*User
 | ID | Skenario Uji | Langkah Pengujian | Hasil yang Diharapkan | Status |
 |:---|:---|:---|:---|:---:|
 | TC-01 | Pendaftaran akun baru dengan data valid | Akses `/register`, isi nama, email unik, NIM unik, prodi, angkatan, kata sandi min. 6 karakter. Klik "Daftar". | Pengguna berhasil terdaftar, otomatis login, dialihkan ke `/student/dashboard` dengan pesan sukses. | [PASS] |
-| TC-02 | Pendaftaran dengan email duplikat | Akses `/register`, masukkan email yang sudah terdaftar (misal: `dina@temanbelajar.ac.id`). | Form menolak pendaftaran dan menampilkan pesan kesalahan "Alamat email sudah terdaftar". | [PASS] |
+| TC-02 | Pendaftaran dengan email duplikat | Akses `/register`, masukkan email yang sudah terdaftar (misal: `ananda@temanbelajar.ac.id`). | Form menolak pendaftaran dan menampilkan pesan kesalahan "Alamat email sudah terdaftar". | [PASS] |
 | TC-03 | Pendaftaran dengan konfirmasi sandi tidak cocok | Masukkan kata sandi `rahasia123` dan konfirmasi `berbeda123`. | Form menolak dengan pesan "Konfirmasi kata sandi tidak cocok". | [PASS] |
 | TC-04 | Keamanan Role Admin pada form registrasi | Periksa formulir publik pendaftaran. | Tidak terdapat opsi untuk mendaftar sebagai Admin. Akun publik selalu default ber-role `student`. | [PASS] |
 
@@ -20,7 +20,7 @@ Dokumen ini berisi panduan skenario pengujian manual langkah-demi-langkah (*User
 
 | ID | Skenario Uji | Langkah Pengujian | Hasil yang Diharapkan | Status |
 |:---|:---|:---|:---|:---:|
-| TC-05 | Login mahasiswa dengan kredensial benar | Masuk dengan `dina@temanbelajar.ac.id` dan sandi `password123`. | Login berhasil, session ID diregenerasi secara aman, diarahkan ke dashboard mahasiswa. | [PASS] |
+| TC-05 | Login mahasiswa dengan kredensial benar | Masuk dengan `ananda@temanbelajar.ac.id` dan sandi `password123`. | Login berhasil, session ID diregenerasi secara aman, diarahkan ke dashboard mahasiswa. | [PASS] |
 | TC-06 | Login dengan kata sandi salah | Masuk dengan email valid namun kata sandi keliru. | Login ditolak dengan pesan kesalahan umum tanpa membocorkan eksistensi akun. | [PASS] |
 | TC-07 | Logout sesi pengguna | Klik menu profil di pojok kanan atas, pilih "Keluar". | Seluruh data session dihancurkan, session cookie dihapus, dialihkan ke halaman login. | [PASS] |
 
@@ -40,7 +40,7 @@ Dokumen ini berisi panduan skenario pengujian manual langkah-demi-langkah (*User
 
 | ID | Skenario Uji | Langkah Pengujian | Hasil yang Diharapkan | Status |
 |:---|:---|:---|:---|:---:|
-| TC-11 | Pencarian berdasarkan kata kunci mata kuliah | Buka `/tutors`, masukkan kata kunci "Basis Data" di input pencarian. | Menampilkan kartu tutor yang memiliki keahlian Basis Data (Nadia Salsabila). | [PASS] |
+| TC-11 | Pencarian berdasarkan kata kunci mata kuliah | Buka `/tutors`, masukkan kata kunci "Basis Data" di input pencarian. | Menampilkan kartu tutor yang memiliki keahlian Basis Data (Sihabudin). | [PASS] |
 | TC-12 | Filter berdasarkan metode online | Pilih filter metode "Online". | Hanya tutor yang mendukung bimbingan online/daring yang ditampilkan. | [PASS] |
 | TC-13 | Filter berdasarkan tarif gratis | Pilih filter "Bimbingan Gratis". | Hanya menampilkan tutor bertanda badge hijau "Gratis". | [PASS] |
 | TC-14 | Empty state pencarian | Cari kata kunci yang tidak ada (misal: "Xylophone999"). | Tampil halaman kosong (*empty state*) yang bersih dengan tombol "Reset Semua Filter". | [PASS] |

@@ -272,12 +272,12 @@ INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `nim`, `study_progr
 (1, 'Admin Akademik TB', 'admin@temanbelajar.ac.id', '$2y$10$iZkGg0U0s0d1f7s2q6u7aeP8hR2O7Vp5g1z2j3k4l5m6n7o8p9q0r', 'ADMIN001', 1, 2020, 'admin', 0, 1, 'admin_avatar.png', '081234567890'),
 -- 2. Tutor Demo 1 (Bintang Pratama)
 (2, 'Bintang Pratama', 'bintang@temanbelajar.ac.id', '$2y$10$iZkGg0U0s0d1f7s2q6u7aeP8hR2O7Vp5g1z2j3k4l5m6n7o8p9q0r', '21051214001', 1, 2021, 'student', 1, 1, 'bintang.png', '081211112222'),
--- 3. Tutor Demo 2 (Nadia Salsabila)
-(3, 'Nadia Salsabila', 'nadia@temanbelajar.ac.id', '$2y$10$iZkGg0U0s0d1f7s2q6u7aeP8hR2O7Vp5g1z2j3k4l5m6n7o8p9q0r', '21051214002', 1, 2021, 'student', 1, 1, 'nadia.png', '081222223333'),
+-- 3. Tutor Demo 2 (Sihabudin)
+(3, 'Sihabudin', 'sihabudin@temanbelajar.ac.id', '$2y$10$iZkGg0U0s0d1f7s2q6u7aeP8hR2O7Vp5g1z2j3k4l5m6n7o8p9q0r', '21051214002', 1, 2021, 'student', 1, 1, 'sihabudin.png', '081222223333'),
 -- 4. Tutor Demo 3 (Rian Hidayat)
 (4, 'Rian Hidayat', 'rian@temanbelajar.ac.id', '$2y$10$iZkGg0U0s0d1f7s2q6u7aeP8hR2O7Vp5g1z2j3k4l5m6n7o8p9q0r', '20051214003', 2, 2020, 'student', 1, 1, 'rian.png', '081233334444'),
--- 5. Mahasiswa Demo 1 (Dina Wahyuni)
-(5, 'Dina Wahyuni', 'dina@temanbelajar.ac.id', '$2y$10$iZkGg0U0s0d1f7s2q6u7aeP8hR2O7Vp5g1z2j3k4l5m6n7o8p9q0r', '23051214010', 1, 2023, 'student', 0, 1, 'dina.png', '081244445555'),
+-- 5. Mahasiswa Demo 1 (Ananda Putra Utama)
+(5, 'Ananda Putra Utama', 'ananda@temanbelajar.ac.id', '$2y$10$iZkGg0U0s0d1f7s2q6u7aeP8hR2O7Vp5g1z2j3k4l5m6n7o8p9q0r', '20240050086', 1, 2024, 'student', 0, 1, 'ananda.png', '081244445555'),
 -- 6. Mahasiswa Demo 2 (Fajar Nugroho)
 (6, 'Fajar Nugroho', 'fajar@temanbelajar.ac.id', '$2y$10$iZkGg0U0s0d1f7s2q6u7aeP8hR2O7Vp5g1z2j3k4l5m6n7o8p9q0r', '23051214011', 2, 2023, 'student', 0, 1, 'fajar.png', '081255556666'),
 -- 7. Mahasiswa Demo 3 (Siti Rahma)
@@ -302,7 +302,7 @@ INSERT INTO `student_profiles` (`user_id`, `bio`, `interest_topics`) VALUES
 -- Profil Tutor
 INSERT INTO `tutor_profiles` (`id`, `user_id`, `headline`, `bio`, `academic_achievements`, `teaching_experience`, `preferred_method`, `hourly_rate`, `is_free`, `is_available`, `is_verified`) VALUES
 (1, 2, 'Tutor Pemrograman Web & Struktur Data (IPK 3.88)', 'Halo! Saya Bintang. Saya suka membantu teman-teman yang merasa kesulitan memahami logika coding dan arsitektur web MVC. Pendekatan belajar saya santai, berbasis praktek langsung, dan studi kasus nyata.', 'IPK 3.88, Asisten Dosen Praktikum Pemrograman Web 2023, Finalis Gemastik.', 'Pengalaman 2 tahun menjadi tutor sebaya dan mentor praktikum di kampus.', 'both', 0.00, 1, 1, 1),
-(2, 3, 'Tutor Basis Data & Analisis Perancangan Sistem (IPK 3.92)', 'Hai! Saya Nadia. Basis data dan perancangan sistem seringkali terlihat abstrak. Bersama saya, kita akan membedah ERD, normalisasi 1NF-3NF, dan kueri SQL langkah demi langkah sampai paham tuntas!', 'IPK 3.92, Mahasiswa Berprestasi Jurusan 2023, Sertifikasi Database Administrator.', '1.5 tahun mendampingi mahasiswa tingkat awal dalam tugas besar basis data.', 'both', 0.00, 1, 1, 1),
+(2, 3, 'Tutor Basis Data & Analisis Perancangan Sistem (IPK 3.92)', 'Hai! Saya Sihabudin (Kak Ihab). Basis data dan perancangan sistem seringkali terlihat abstrak. Bersama saya, kita akan membedah ERD, normalisasi 1NF-3NF, dan kueri SQL langkah demi langkah sampai paham tuntas!', 'IPK 3.92, Mahasiswa Berprestasi Jurusan 2023, Sertifikasi Database Administrator.', '1.5 tahun mendampingi mahasiswa tingkat awal dalam tugas besar basis data.', 'both', 0.00, 1, 1, 1),
 (3, 4, 'Tutor Jaringan Komputer, Matematika Diskrit & AI (IPK 3.79)', 'Halo rekan-rekan! Saya Rian. Menghadapi subnetting, graf diskrit, atau implementasi model AI? Jangan ragu belajar bersama. Saya akan jelaskan konsep rumit menjadi analogi yang mudah dicerna.', 'IPK 3.79, Juara 2 Networking Competition Nasional 2023.', 'Tutor privat sebaya sejak 2022 untuk 30+ sesi bimbingan.', 'online', 25000.00, 0, 1, 1);
 
 -- Mata Kuliah yang Diampu Tutor
@@ -342,12 +342,12 @@ INSERT INTO `study_sessions` (`id`, `session_code`, `student_id`, `tutor_id`, `s
 INSERT INTO `reviews` (`study_session_id`, `student_id`, `tutor_id`, `rating`, `comment`, `is_visible`) VALUES
 (1, 5, 2, 5, 'Kak Bintang penjelasannya sangat jelas dan sabar banget! Materi flexbox yang awalnya bikin pusing jadi mudah dimengerti berkat contoh visual langsung. Rekomendasi banget!', 1),
 (2, 6, 2, 5, 'Materi binary tree diajarkan step-by-step dengan coding interaktif. Sesi sangat seru dan ramah mahasiswa.', 1),
-(3, 7, 3, 5, 'Kak Nadia jago banget SQL! Langsung to the point ke masalah ERD yang saya alami di tugas kelompok. Terima kasih banyak Kak!', 1);
+(3, 7, 3, 5, 'Kak Ihab jago banget SQL! Langsung to the point ke masalah ERD yang saya alami di tugas kelompok. Terima kasih banyak Kak!', 1);
 
 -- Notifikasi Demo
 INSERT INTO `notifications` (`user_id`, `title`, `message`, `link`, `type`, `is_read`) VALUES
 (2, 'Permintaan Sesi Baru', 'Mahasiswa Arif Wibowo mengajukan sesi belajar untuk mata kuliah Algoritma & Pemrograman.', '/tutor/sessions', 'booking', 1),
-(2, 'Ulasan Baru Diterima', 'Dina Wahyuni memberikan bintang 5 untuk sesi Pemrograman Web I.', '/tutor/dashboard', 'review', 1),
+(2, 'Ulasan Baru Diterima', 'Ananda Putra Utama memberikan bintang 5 untuk sesi Pemrograman Web I.', '/tutor/dashboard', 'review', 1),
 (5, 'Sesi Belajar Selesai', 'Sesi belajar Pemrograman Web I telah selesai. Berikan ulasan untuk Kak Bintang Pratama!', '/student/sessions', 'success', 1),
 (8, 'Permintaan Sesi Diterima', 'Kak Bintang Pratama menyetujui sesi belajar pada 15 Oktober 2026 di Gazebo Gedung C.', '/student/sessions', 'success', 0);
 
@@ -355,4 +355,4 @@ INSERT INTO `notifications` (`user_id`, `title`, `message`, `link`, `type`, `is_
 INSERT INTO `activity_logs` (`user_id`, `action`, `details`, `ip_address`, `user_agent`) VALUES
 (1, 'system_init', 'Database TemanBelajar berhasil diinisialisasi dan diisi data awal.', '127.0.0.1', 'Console/Seeder'),
 (2, 'tutor_profile_updated', 'Tutor Bintang Pratama memperbarui ketersediaan jadwal bimbingan.', '127.0.0.1', 'Mozilla/5.0'),
-(5, 'review_submitted', 'Dina Wahyuni mengirim ulasan rating 5 untuk sesi TB-202610-001.', '127.0.0.1', 'Mozilla/5.0');
+(5, 'review_submitted', 'Ananda Putra Utama mengirim ulasan rating 5 untuk sesi TB-202610-001.', '127.0.0.1', 'Mozilla/5.0');

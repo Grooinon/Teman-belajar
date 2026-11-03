@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Tutor Sebaya — TemanBelajar Demo</title>
+    <meta name="description" content="Dashboard manajemen tutor sebaya: setujui permintaan bimbingan, pantau jadwal mengajar, dan kelola mata kuliah kurikulum.">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom Theme Styling -->
+    <link rel="stylesheet" href="assets/css/demo.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-tb sticky-top py-2">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+                <span class="brand-logo-box">
+                    <i class="bi bi-mortarboard-fill fs-5"></i>
+                </span>
+                <span class="text-dark fs-5 tracking-tight">Teman<span class="text-primary">Belajar</span></span>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3 gap-lg-1">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i> Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tutors.html"><i class="bi bi-search me-1"></i> Cari Tutor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="how-it-works.html"><i class="bi bi-lightbulb me-1"></i> Cara Kerja</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="bi bi-info-circle me-1"></i> Tentang</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-2" id="navbarAuthArea"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1">
+        <div class="container py-4">
+            <!-- Header -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+                <div>
+                    <div class="d-flex align-items-center gap-2 mb-1">
+                        <span class="badge bg-primary text-white">Mode Tutor Sebaya</span>
+                        <span class="badge badge-verified"><i class="bi bi-patch-check-fill"></i> Terverifikasi</span>
+                        <span class="badge bg-success-subtle text-success fw-semibold" id="tutorStatusBadge">
+                            <i class="bi bi-circle-fill me-1" style="font-size: 0.55rem;"></i> Status: Siap Mengajar
+                        </span>
+                    </div>
+                    <h1 class="h3 fw-bold text-dark mb-0">Dashboard Tutor Sebaya</h1>
+                    <p class="text-secondary small mb-0">Kelola permintaan bimbingan, jadwal mengajar, dan materi akademik yang Anda ampu.</p>
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="button" class="btn btn-outline-secondary btn-sm px-3" onclick="toggleTutorAvailability()">
+                        <i class="bi bi-arrow-repeat me-1"></i> Ubah Status Ketersediaan
+                    </button>
+                    <a href="tutor-detail.html?id=1" class="btn btn-outline-primary btn-sm px-3">
+                        <i class="bi bi-eye me-1"></i> Lihat Profil Publik
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="row g-3 mb-4">
+                <div class="col-6 col-md-3">
+                    <div class="tb-card p-3 bg-white h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="small text-muted fw-semibold">Permintaan Masuk</span>
+                            <span class="badge bg-warning-subtle text-warning p-2 rounded-3"><i class="bi bi-inbox fs-6"></i></span>
+                        </div>
+                        <h3 class="fw-bold text-dark mb-0" id="tutorPendingCount">0</h3>
+                        <small class="text-muted">Perlu konfirmasi Anda</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="tb-card p-3 bg-white h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="small text-muted fw-semibold">Jadwal Mendatang</span>
+                            <span class="badge bg-primary-subtle text-primary p-2 rounded-3"><i class="bi bi-calendar-event fs-6"></i></span>
+                        </div>
+                        <h3 class="fw-bold text-dark mb-0" id="tutorUpcomingCount">0</h3>
+                        <small class="text-muted">Sesi aktif terjadwal</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="tb-card p-3 bg-white h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="small text-muted fw-semibold">Sesi Diselesaikan</span>
+                            <span class="badge bg-success-subtle text-success p-2 rounded-3"><i class="bi bi-check2-circle fs-6"></i></span>
+                        </div>
+                        <h3 class="fw-bold text-dark mb-0" id="tutorCompletedCount">0</h3>
+                        <small class="text-muted">Total tuntas mengajar</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="tb-card p-3 bg-white h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="small text-muted fw-semibold">Rata-Rata Rating</span>
+                            <span class="badge bg-warning-subtle text-warning p-2 rounded-3"><i class="bi bi-star-fill fs-6"></i></span>
+                        </div>
+                        <h3 class="fw-bold text-dark mb-0">⭐ <span id="tutorAvgRatingDisplay">4.9</span></h3>
+                        <small class="text-muted"><span id="tutorReviewCountDisplay">18</span> ulasan mahasiswa</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Main Column: Incoming Requests & Schedule -->
+                <div class="col-lg-8">
+                    <!-- Incoming Requests -->
+                    <div class="tb-card p-4 bg-white mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="h5 fw-bold text-dark mb-0">
+                                <i class="bi bi-bell-fill text-warning me-2"></i>Permintaan Sesi Belajar Masuk
+                            </h2>
+                            <span class="badge bg-warning-subtle text-warning" id="pendingBadgeText">0 Menunggu</span>
+                        </div>
+                        <div class="d-flex flex-column gap-3" id="incomingRequestsContainer">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Confirmed Sessions -->
+                    <div class="tb-card p-4 bg-white">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h2 class="h5 fw-bold text-dark mb-0">
+                                <i class="bi bi-calendar-check text-primary me-2"></i>Jadwal Mengajar Terkonfirmasi
+                            </h2>
+                        </div>
+                        <div class="d-flex flex-column gap-3" id="confirmedTeachingSessionsContainer">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Subjects & Availability -->
+                <div class="col-lg-4">
+                    <!-- Subjects Taught -->
+                    <div class="tb-card p-4 bg-white mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="fw-bold text-dark mb-0">
+                                <i class="bi bi-book text-primary me-1"></i> Mata Kuliah Bimbingan
+                            </h6>
+                            <span class="badge bg-primary text-white" id="tutorSubjectsCount">0</span>
+                        </div>
+                        <div class="d-flex flex-column gap-2" id="tutorSubjectsList">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Availability Slots -->
+                    <div class="tb-card p-4 bg-white mb-4">
+                        <h6 class="fw-bold text-dark mb-3">
+                            <i class="bi bi-clock-history text-primary me-1"></i> Jadwal Ketersediaan Rutin
+                        </h6>
+                        <div class="d-flex flex-column gap-2" id="tutorAvailabilityList">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-tb mt-auto pt-5 pb-4">
+        <div class="container text-center small text-secondary">
+            &copy; 2026 <strong>TemanBelajar</strong>. Dibuat untuk ekosistem kolaborasi akademik mahasiswa kampus.
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Demo Data & Scripts -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/demo-app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const data = getTBData();
+            // Tutor Bintang Pratama has user_id = 2, tutor_id = 1
+            const tutor = data.tutors.find(t => t.id === 1) || data.tutors[0];
+            const tutorUserId = tutor.user_id;
+
+            // Stats
+            const pendingRequests = data.sessions.filter(s => s.tutor_id === tutorUserId && s.status === 'pending');
+            const upcomingSessions = data.sessions.filter(s => s.tutor_id === tutorUserId && s.status === 'accepted');
+            const completedSessions = data.sessions.filter(s => s.tutor_id === tutorUserId && s.status === 'completed');
+
+            document.getElementById('tutorPendingCount').textContent = pendingRequests.length;
+            document.getElementById('tutorUpcomingCount').textContent = upcomingSessions.length;
+            document.getElementById('tutorCompletedCount').textContent = completedSessions.length + tutor.completed_sessions_count;
+            document.getElementById('tutorAvgRatingDisplay').textContent = tutor.avg_rating.toFixed(1);
+            document.getElementById('tutorReviewCountDisplay').textContent = tutor.review_count;
+            document.getElementById('pendingBadgeText').textContent = `${pendingRequests.length} Menunggu`;
+
+            // Availability Badge
+            updateAvailabilityUI(tutor.is_available);
+
+            // Render Pending Requests
+            const pendingContainer = document.getElementById('incomingRequestsContainer');
+            if (pendingRequests.length === 0) {
+                pendingContainer.innerHTML = `
+                    <div class="p-4 bg-light rounded-3 text-center text-muted small">
+                        <i class="bi bi-check2-circle fs-2 d-block mb-1 text-success"></i>
+                        Tidak ada permintaan bimbingan baru yang menunggu konfirmasi saat ini.
+                    </div>
+                `;
+            } else {
+                pendingContainer.innerHTML = pendingRequests.map(req => `
+                    <div class="p-3 bg-light rounded-3 border d-flex flex-column gap-2">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="avatar-placeholder" style="width: 40px; height: 40px; font-size: 1rem;">
+                                    ${req.student_name.charAt(0)}
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold text-dark mb-0">${escapeHtml(req.student_name)}</h6>
+                                    <small class="text-muted">Kode Sesi: <code>${req.session_code}</code></small>
+                                </div>
+                            </div>
+                            <span class="badge-status status-pending">Perlu Respon</span>
+                        </div>
+
+                        <div class="p-2 bg-white rounded border small">
+                            <div><strong>Mata Kuliah:</strong> ${escapeHtml(req.subject_name)} (${req.subject_code})</div>
+                            <div><strong>Jadwal:</strong> ${req.session_date} (${req.start_time} - ${req.end_time} WIB) [${req.duration_minutes} Menit]</div>
+                            <div><strong>Metode:</strong> ${req.learning_method === 'online' ? 'Online' : 'Tatap Muka'} (${escapeHtml(req.location_or_link)})</div>
+                            ${req.notes ? `<div class="mt-1 text-secondary fst-italic">"${escapeHtml(req.notes)}"</div>` : ''}
+                        </div>
+
+                        <div class="d-flex gap-2 justify-content-end mt-1">
+                            <button type="button" class="btn btn-outline-danger btn-sm px-3 fw-semibold" onclick="rejectSession(${req.id})">
+                                <i class="bi bi-x-circle me-1"></i> Tolak
+                            </button>
+                            <button type="button" class="btn btn-success btn-sm px-3 fw-semibold text-white" onclick="approveSession(${req.id})">
+                                <i class="bi bi-check2-circle me-1"></i> Setujui Sesi
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Render Confirmed Sessions
+            const confirmedContainer = document.getElementById('confirmedTeachingSessionsContainer');
+            if (upcomingSessions.length === 0) {
+                confirmedContainer.innerHTML = `
+                    <div class="p-4 bg-light rounded-3 text-center text-muted small">
+                        <i class="bi bi-calendar-event fs-2 d-block mb-1 text-secondary"></i>
+                        Belum ada jadwal mengajar yang terkonfirmasi dalam waktu dekat.
+                    </div>
+                `;
+            } else {
+                confirmedContainer.innerHTML = upcomingSessions.map(ses => `
+                    <div class="p-3 bg-light rounded-3 border d-flex flex-column gap-2">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <span class="badge bg-primary text-white small">${escapeHtml(ses.subject_code)}</span>
+                                <h6 class="fw-bold text-dark d-inline ms-1">${escapeHtml(ses.subject_name)}</h6>
+                            </div>
+                            <span class="badge-status status-accepted">Terkonfirmasi</span>
+                        </div>
+                        <div class="small text-secondary">
+                            Mahasiswa: <strong>${escapeHtml(ses.student_name)}</strong> • 
+                            <i class="bi bi-calendar-event me-1"></i>${ses.session_date} (${ses.start_time} - ${ses.end_time} WIB)
+                        </div>
+                        <div class="small text-muted">
+                            Lokasi / Link: <strong class="text-primary">${escapeHtml(ses.location_or_link)}</strong>
+                        </div>
+                        <div class="d-flex justify-content-end mt-2 pt-2 border-top">
+                            <button type="button" class="btn btn-tb-primary btn-sm px-3 fw-semibold" onclick="completeSession(${ses.id})">
+                                <i class="bi bi-check2-all me-1"></i> Tandai Selesai Mengajar
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Render Subjects List
+            document.getElementById('tutorSubjectsCount').textContent = tutor.subjects.length;
+            const subjectsContainer = document.getElementById('tutorSubjectsList');
+            subjectsContainer.innerHTML = tutor.subjects.map(s => `
+                <div class="p-2 rounded bg-light border d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="fw-bold small text-dark">${escapeHtml(s.name)}</div>
+                        <small class="text-muted">${s.code}</small>
+                    </div>
+                    <span class="badge badge-grade">Nilai ${s.grade}</span>
+                </div>
+            `).join('');
+
+            // Render Availability List
+            const availContainer = document.getElementById('tutorAvailabilityList');
+            availContainer.innerHTML = tutor.availability.map(slot => `
+                <div class="d-flex justify-content-between align-items-center small p-2 rounded bg-light border">
+                    <span class="fw-semibold text-dark">${slot.day}</span>
+                    <span class="text-muted">${slot.start} - ${slot.end} WIB</span>
+                </div>
+            `).join('');
+        });
+
+        function toggleTutorAvailability() {
+            const data = getTBData();
+            const tutor = data.tutors.find(t => t.id === 1);
+            if (!tutor) return;
+
+            tutor.is_available = tutor.is_available ? 0 : 1;
+            saveTBData(data);
+
+            updateAvailabilityUI(tutor.is_available);
+            showToast('Status Diperbarui', `Status ketersediaan Anda diubah menjadi: ${tutor.is_available ? 'Siap Mengajar' : 'Istirahat / Penuh'}`, 'info');
+        }
+
+        function updateAvailabilityUI(isAvailable) {
+            const badge = document.getElementById('tutorStatusBadge');
+            if (isAvailable) {
+                badge.className = 'badge bg-success-subtle text-success fw-semibold';
+                badge.innerHTML = '<i class="bi bi-circle-fill me-1" style="font-size: 0.55rem;"></i> Status: Siap Mengajar';
+            } else {
+                badge.className = 'badge bg-secondary-subtle text-secondary fw-semibold';
+                badge.innerHTML = '<i class="bi bi-dash-circle me-1"></i> Status: Sedang Istirahat';
+            }
+        }
+    </script>
+</body>
+</html>

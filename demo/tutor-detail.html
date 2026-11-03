@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Tutor Sebaya — TemanBelajar Demo</title>
+    <meta name="description" content="Lihat kredensial akademik, nilai mata kuliah, ulasan mahasiswa, dan ajukan bimbingan belajar dengan tutor sebaya terverifikasi.">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom Theme Styling -->
+    <link rel="stylesheet" href="assets/css/demo.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-tb sticky-top py-2">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+                <span class="brand-logo-box">
+                    <i class="bi bi-mortarboard-fill fs-5"></i>
+                </span>
+                <span class="text-dark fs-5 tracking-tight">Teman<span class="text-primary">Belajar</span></span>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3 gap-lg-1">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i> Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tutors.html"><i class="bi bi-search me-1"></i> Cari Tutor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="how-it-works.html"><i class="bi bi-lightbulb me-1"></i> Cara Kerja</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="bi bi-info-circle me-1"></i> Tentang</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-2" id="navbarAuthArea"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1">
+        <div class="container py-4">
+            <!-- Breadcrumbs -->
+            <nav aria-label="breadcrumb" class="mb-3">
+                <ol class="breadcrumb small">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="tutors.html" class="text-decoration-none">Cari Tutor</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="breadcrumbTutorName">Profil Tutor</li>
+                </ol>
+            </nav>
+
+            <div class="row g-4" id="tutorDetailMainRow">
+                <!-- Main Profile Column -->
+                <div class="col-lg-8">
+                    <!-- Profile Card Header -->
+                    <div class="tb-card p-4 p-md-5 bg-white mb-4">
+                        <div class="d-flex flex-column flex-md-row align-items-md-center gap-4 mb-4">
+                            <div class="avatar-placeholder avatar-tutor shadow-sm" style="width: 100px; height: 100px; font-size: 2.5rem;" id="detailAvatarPlaceholder">
+                                B
+                            </div>
+
+                            <div class="flex-grow-1">
+                                <div class="d-flex flex-wrap align-items-center gap-2 mb-1">
+                                    <h1 class="h3 fw-bold text-dark mb-0" id="detailFullName">Nama Tutor</h1>
+                                    <span class="badge badge-verified">
+                                        <i class="bi bi-patch-check-fill"></i> Tutor Terverifikasi
+                                    </span>
+                                    <span class="badge bg-success-subtle text-success fw-semibold" id="detailAvailabilityBadge">
+                                        <i class="bi bi-circle-fill me-1" style="font-size: 0.55rem;"></i> Siap Mengajar
+                                    </span>
+                                </div>
+
+                                <p class="text-secondary small mb-2" id="detailMetaInfo">
+                                    Sistem Informasi • Angkatan 2021 (NIM: 21051214001)
+                                </p>
+
+                                <div class="d-flex align-items-center gap-3 small">
+                                    <div class="d-flex align-items-center gap-1">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <span class="fw-bold text-dark fs-6" id="detailRating">4.9</span>
+                                        <span class="text-muted" id="detailReviewCount">(18 ulasan)</span>
+                                    </div>
+                                    <span class="text-muted">•</span>
+                                    <div class="text-secondary">
+                                        <i class="bi bi-check2-all text-success me-1"></i><span id="detailCompletedCount">24</span> Sesi Tuntas
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Headline Callout -->
+                        <div class="p-3 bg-light rounded-3 mb-4 border">
+                            <div class="fw-bold text-dark mb-1 small text-uppercase tracking-wider">Motto & Fokus Bimbingan</div>
+                            <p class="mb-0 text-secondary fst-italic" id="detailHeadline">"..."</p>
+                        </div>
+
+                        <!-- Bio -->
+                        <div class="mb-4">
+                            <h2 class="h5 fw-bold text-dark mb-2">Tentang Tutor & Pendekatan Mengajar</h2>
+                            <p class="text-secondary" style="white-space: pre-line;" id="detailBio">...</p>
+                        </div>
+
+                        <!-- Credentials & Experience -->
+                        <div class="mb-4 pt-3 border-top">
+                            <h2 class="h5 fw-bold text-dark mb-3">Kredensial & Pengalaman Akademik</h2>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="p-3 rounded-3 bg-light border h-100">
+                                        <h6 class="fw-bold text-dark mb-2 small"><i class="bi bi-award text-primary me-1"></i> Prestasi Akademik</h6>
+                                        <p class="small text-secondary mb-0" style="white-space: pre-line;" id="detailAchievements">...</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 rounded-3 bg-light border h-100">
+                                        <h6 class="fw-bold text-dark mb-2 small"><i class="bi bi-briefcase text-primary me-1"></i> Pengalaman Mengajar</h6>
+                                        <p class="small text-secondary mb-0" style="white-space: pre-line;" id="detailExperience">...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Subjects Taught -->
+                        <div class="mb-4 pt-3 border-top">
+                            <h2 class="h5 fw-bold text-dark mb-3">Mata Kuliah yang Dikuasai</h2>
+                            <div class="row g-3" id="detailSubjectsGrid">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Weekly Availability -->
+                        <div class="mb-4 pt-3 border-top">
+                            <h2 class="h5 fw-bold text-dark mb-3">Jadwal Ketersediaan Rutin</h2>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover align-middle mb-0">
+                                    <thead class="table-light small">
+                                        <tr>
+                                            <th>Hari</th>
+                                            <th>Jam Mulai</th>
+                                            <th>Jam Selesai</th>
+                                            <th>Status Slot</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="detailAvailabilityTable">
+                                        <!-- Populated dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Student Reviews -->
+                        <div class="pt-3 border-top">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h2 class="h5 fw-bold text-dark mb-0">Ulasan & Rating Mahasiswa (<span id="detailReviewsTotal">0</span>)</h2>
+                            </div>
+                            <div class="d-flex flex-column gap-3" id="detailReviewsList">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sticky Booking Sidebar -->
+                <div class="col-lg-4">
+                    <div class="tb-card p-4 bg-white sticky-top shadow-sm" style="top: 80px;">
+                        <div class="text-center pb-3 mb-3 border-bottom">
+                            <div class="small text-muted mb-1">Tarif Bimbingan Belajar</div>
+                            <h3 class="fw-bold text-primary mb-1" id="detailRateDisplay">Gratis</h3>
+                            <p class="small text-muted mb-0" id="detailRateSubtext">Bimbingan sukarela tanpa pungutan biaya demi sesama mahasiswa.</p>
+                        </div>
+
+                        <ul class="list-unstyled small d-flex flex-column gap-2 mb-4">
+                            <li class="d-flex justify-content-between">
+                                <span class="text-muted"><i class="bi bi-laptop me-1"></i> Metode:</span>
+                                <strong class="text-dark" id="detailMethodDisplay">Online & Tatap Muka</strong>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <span class="text-muted"><i class="bi bi-clock me-1"></i> Durasi:</span>
+                                <strong class="text-dark">60 - 120 Menit / sesi</strong>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <span class="text-muted"><i class="bi bi-shield-check me-1"></i> Validasi:</span>
+                                <strong class="text-success">Cegah Bentrok Otomatis</strong>
+                            </li>
+                        </ul>
+
+                        <button type="button" class="btn btn-tb-primary w-100 py-3 fw-bold fs-6 mb-2 shadow-sm" id="detailBookButton">
+                            <i class="bi bi-calendar-plus me-1"></i> Ajukan Sesi Belajar
+                        </button>
+                        <div class="text-center small text-muted">
+                            Pemesanan langsung masuk ke dashboard tutor
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-tb mt-auto pt-5 pb-4">
+        <div class="container text-center small text-secondary">
+            &copy; 2026 <strong>TemanBelajar</strong>. Dibuat untuk ekosistem kolaborasi akademik mahasiswa kampus.
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Demo Data & Scripts -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/demo-app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const data = getTBData();
+            const params = new URLSearchParams(window.location.search);
+            const tutorId = parseInt(params.get('id') || '1', 10);
+
+            const tutor = data.tutors.find(t => t.id === tutorId) || data.tutors[0];
+            if (!tutor) return;
+
+            // Page Titles & Breadcrumb
+            document.title = `${tutor.full_name} — Profil Tutor TemanBelajar Demo`;
+            document.getElementById('breadcrumbTutorName').textContent = tutor.full_name;
+
+            // Profile info
+            document.getElementById('detailAvatarPlaceholder').textContent = tutor.full_name.charAt(0);
+            document.getElementById('detailFullName').textContent = tutor.full_name;
+            document.getElementById('detailMetaInfo').textContent = `${tutor.program_name} • Angkatan ${tutor.graduation_year} (NIM: ${tutor.nim})`;
+            document.getElementById('detailRating').textContent = tutor.avg_rating.toFixed(1);
+            document.getElementById('detailReviewCount').textContent = `(${tutor.review_count} ulasan)`;
+            document.getElementById('detailCompletedCount').textContent = tutor.completed_sessions_count;
+            document.getElementById('detailHeadline').textContent = `"${tutor.headline}"`;
+            document.getElementById('detailBio').textContent = tutor.bio;
+            document.getElementById('detailAchievements').textContent = tutor.academic_achievements || 'Tidak dicantumkan.';
+            document.getElementById('detailExperience').textContent = tutor.teaching_experience || 'Pengalaman membimbing mahasiswa sejawat.';
+
+            // Availability Badge
+            const availBadge = document.getElementById('detailAvailabilityBadge');
+            if (tutor.is_available) {
+                availBadge.className = 'badge bg-success-subtle text-success fw-semibold';
+                availBadge.innerHTML = '<i class="bi bi-circle-fill me-1" style="font-size: 0.55rem;"></i> Siap Mengajar';
+            } else {
+                availBadge.className = 'badge bg-secondary-subtle text-secondary fw-semibold';
+                availBadge.innerHTML = 'Jadwal Penuh';
+            }
+
+            // Price & Method
+            const rateDisplay = document.getElementById('detailRateDisplay');
+            const rateSubtext = document.getElementById('detailRateSubtext');
+            if (tutor.is_free) {
+                rateDisplay.textContent = 'Gratis';
+                rateDisplay.className = 'fw-bold text-success mb-1';
+                rateSubtext.textContent = 'Bimbingan sukarela tanpa pungutan biaya demi sesama mahasiswa.';
+            } else {
+                rateDisplay.textContent = formatRupiah(tutor.hourly_rate);
+                rateDisplay.className = 'fw-bold text-primary mb-1';
+                rateSubtext.textContent = 'per sesi bimbingan (pembayaran langsung di luar platform).';
+            }
+
+            const methodDisplay = document.getElementById('detailMethodDisplay');
+            if (tutor.preferred_method === 'online') methodDisplay.textContent = 'Hanya Online';
+            else if (tutor.preferred_method === 'offline') methodDisplay.textContent = 'Tatap Muka Saja';
+            else methodDisplay.textContent = 'Online & Tatap Muka';
+
+            // Subjects Grid
+            const subjGrid = document.getElementById('detailSubjectsGrid');
+            subjGrid.innerHTML = tutor.subjects.map(s => `
+                <div class="col-md-6">
+                    <div class="p-3 rounded-3 bg-light border h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary text-white">${escapeHtml(s.code)}</span>
+                                <span class="badge badge-grade">Nilai: ${s.grade}</span>
+                            </div>
+                            <h6 class="fw-bold text-dark mb-1">${escapeHtml(s.name)}</h6>
+                            <p class="small text-secondary mb-0">${escapeHtml(s.notes)}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Availability Table
+            const availTable = document.getElementById('detailAvailabilityTable');
+            availTable.innerHTML = tutor.availability.map(slot => `
+                <tr>
+                    <td class="fw-semibold text-dark">${slot.day}</td>
+                    <td>${slot.start} WIB</td>
+                    <td>${slot.end} WIB</td>
+                    <td><span class="badge bg-success-subtle text-success">Slot Aktif</span></td>
+                </tr>
+            `).join('');
+
+            // Reviews List
+            const tutorReviews = data.reviews.filter(r => r.tutor_id === tutor.user_id && r.is_visible);
+            document.getElementById('detailReviewsTotal').textContent = tutorReviews.length;
+            const revContainer = document.getElementById('detailReviewsList');
+            if (tutorReviews.length === 0) {
+                revContainer.innerHTML = `
+                    <div class="p-4 bg-light rounded-3 text-center text-muted small">
+                        Belum ada ulasan untuk tutor ini. Jadilah mahasiswa pertama yang belajar bersama Kak ${escapeHtml(tutor.full_name)}!
+                    </div>
+                `;
+            } else {
+                revContainer.innerHTML = tutorReviews.map(r => `
+                    <div class="p-3 bg-light rounded-3 border">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="avatar-placeholder" style="width: 32px; height: 32px; font-size: 0.85rem;">
+                                    ${r.student_name.charAt(0)}
+                                </div>
+                                <div>
+                                    <div class="fw-bold text-dark small">${escapeHtml(r.student_name)}</div>
+                                    <small class="text-muted">Mata kuliah: ${escapeHtml(r.subject_name)}</small>
+                                </div>
+                            </div>
+                            <div class="star-rating small">
+                                ${'<i class="bi bi-star-fill text-warning"></i>'.repeat(r.rating)}
+                            </div>
+                        </div>
+                        <p class="small text-secondary mb-1">"${escapeHtml(r.comment)}"</p>
+                        <small class="text-muted" style="font-size: 0.75rem;">${r.created_at.slice(0, 10)}</small>
+                    </div>
+                `).join('');
+            }
+
+            // Booking Button Event
+            document.getElementById('detailBookButton').onclick = function () {
+                openBookingModal(tutor.id);
+            };
+        });
+    </script>
+</body>
+</html>

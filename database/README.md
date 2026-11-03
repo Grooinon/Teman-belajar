@@ -62,9 +62,9 @@ Script ini akan otomatis mendeteksi konfigurasi pada file `.env` (baik MySQL mau
 | :--- | :--- | :--- | :--- | :--- |
 | **Admin** | Admin Akademik TB | `admin@temanbelajar.ac.id` | `password123` | Akses penuh dashboard admin |
 | **Tutor** | Bintang Pratama | `bintang@temanbelajar.ac.id` | `password123` | Tutor Web Dev & Struktur Data (Gratis) |
-| **Tutor** | Nadia Salsabila | `nadia@temanbelajar.ac.id` | `password123` | Tutor Basis Data & Analisis Sistem (Gratis) |
+| **Tutor** | Sihabudin (Kak Ihab) | `sihabudin@temanbelajar.ac.id` | `password123` | Tutor Basis Data & Analisis Sistem (Gratis) |
 | **Tutor** | Rian Hidayat | `rian@temanbelajar.ac.id` | `password123` | Tutor Jaringan & AI (Berbayar Rp25.000) |
-| **Mahasiswa** | Dina Wahyuni | `dina@temanbelajar.ac.id` | `password123` | Mahasiswa pemohon sesi |
+| **Mahasiswa** | Ananda Putra Utama (NIM: 20240050086) | `ananda@temanbelajar.ac.id` | `password123` | Mahasiswa pemohon sesi |
 | **Mahasiswa** | Fajar Nugroho | `fajar@temanbelajar.ac.id` | `password123` | Mahasiswa pemohon sesi |
 | **Mahasiswa** | Siti Rahma | `siti@temanbelajar.ac.id` | `password123` | Mahasiswa pemohon sesi |
 | **Mahasiswa** | Arif Wibowo | `arif@temanbelajar.ac.id` | `password123` | Mahasiswa baru 2024 |

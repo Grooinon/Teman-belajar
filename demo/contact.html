@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami — TemanBelajar Demo</title>
+    <meta name="description" content="Layanan bantuan dan informasi kontak pengelola platform TemanBelajar mahasiswa kampus.">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom Theme Styling -->
+    <link rel="stylesheet" href="assets/css/demo.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-tb sticky-top py-2">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.html">
+                <span class="brand-logo-box"><i class="bi bi-mortarboard-fill fs-5"></i></span>
+                <span class="text-dark fs-5 tracking-tight">Teman<span class="text-primary">Belajar</span></span>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3 gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tutors.html">Cari Tutor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="how-it-works.html">Cara Kerja</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2" id="navbarAuthArea"></div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1 py-5">
+        <div class="container">
+            <div class="text-center max-w-2xl mx-auto mb-5">
+                <span class="badge bg-primary-subtle text-primary fw-semibold px-3 py-1 rounded-pill mb-2">Pusat Bantuan</span>
+                <h1 class="display-6 fw-bold text-dark mb-3">Hubungi Tim TemanBelajar</h1>
+                <p class="lead text-secondary">
+                    Punya pertanyaan, kendala teknis, atau saran pengembangan fitur? Kami siap membantu rekan mahasiswa.
+                </p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4">
+                    <div class="tb-card p-4 bg-white h-100">
+                        <h5 class="fw-bold text-dark mb-3">Informasi Kontak</h5>
+                        
+                        <div class="d-flex gap-3 mb-3">
+                            <div class="icon-box-primary flex-shrink-0" style="width: 40px; height: 40px; font-size: 1.1rem;">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold small text-dark">Lokasi Sekretariat</div>
+                                <p class="small text-secondary mb-0">Gedung Fakultas Ilmu Komputer, Ruang Laboratorium Komputasi Sistem Informasi</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3 mb-3">
+                            <div class="icon-box-primary flex-shrink-0" style="width: 40px; height: 40px; font-size: 1.1rem;">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold small text-dark">Email Dukungan</div>
+                                <p class="small text-secondary mb-0">bantuan@temanbelajar.ac.id</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-3 mb-4">
+                            <div class="icon-box-primary flex-shrink-0" style="width: 40px; height: 40px; font-size: 1.1rem;">
+                                <i class="bi bi-whatsapp"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold small text-dark">Help Desk WhatsApp</div>
+                                <p class="small text-secondary mb-0">0812-3456-7890 (Senin - Jumat, 08:00 - 17:00 WIB)</p>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-light rounded-3 border small text-muted">
+                            <i class="bi bi-info-circle text-primary me-1"></i> Untuk pertanyaan umum seputar pemesanan dan jadwal, Anda juga dapat membaca halaman <a href="how-it-works.html#faq" class="text-primary text-decoration-none">FAQ kami</a>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="tb-card p-4 p-md-5 bg-white">
+                        <h5 class="fw-bold text-dark mb-3">Kirim Pesan Bantuan</h5>
+                        <form onsubmit="handleContactSubmit(event)">
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold text-secondary">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="contactName" placeholder="Nama Anda" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold text-secondary">Email Kampus</label>
+                                <input type="email" class="form-control" id="contactEmail" placeholder="nama@temanbelajar.ac.id" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold text-secondary">Subjek Pertanyaan</label>
+                                <input type="text" class="form-control" id="contactSubject" placeholder="Misal: Kendala pemesanan sesi belajar" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold text-secondary">Pesan / Masukan</label>
+                                <textarea class="form-control" id="contactMessage" rows="4" placeholder="Tuliskan kendala atau pertanyaan Anda secara rinci..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-tb-primary w-100 py-2 fw-semibold">
+                                <i class="bi bi-send me-1"></i> Kirim Pesan Sekarang
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-tb mt-auto pt-5 pb-4">
+        <div class="container text-center small text-secondary">
+            &copy; 2026 <strong>TemanBelajar</strong>. Dibuat untuk ekosistem kolaborasi akademik mahasiswa kampus.
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Demo Data & Scripts -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/demo-app.js"></script>
+    <script>
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value;
+            showToast('Pesan Terkirim!', `Terima kasih, Kak ${name}. Pesan Anda telah diterima oleh tim pengelola akademik TemanBelajar.`, 'success');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>

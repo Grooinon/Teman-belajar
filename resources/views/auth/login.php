@@ -53,8 +53,8 @@
                                     <ul class="list-unstyled mb-0 d-flex flex-column gap-1">
                                         <li><strong class="text-dark">Admin:</strong> <code>admin@temanbelajar.ac.id</code></li>
                                         <li><strong class="text-dark">Tutor 1:</strong> <code>bintang@temanbelajar.ac.id</code></li>
-                                        <li><strong class="text-dark">Tutor 2:</strong> <code>nadia@temanbelajar.ac.id</code></li>
-                                        <li><strong class="text-dark">Mahasiswa 1:</strong> <code>dina@temanbelajar.ac.id</code></li>
+                                        <li><strong class="text-dark">Tutor 2:</strong> <code>sihabudin@temanbelajar.ac.id</code> (Sihabudin - Kak Ihab)</li>
+                                        <li><strong class="text-dark">Mahasiswa 1:</strong> <code>ananda@temanbelajar.ac.id</code> (Ananda Putra Utama - 20240050086)</li>
                                         <li><strong class="text-dark">Mahasiswa 2:</strong> <code>fajar@temanbelajar.ac.id</code></li>
                                     </ul>
                                 </div>

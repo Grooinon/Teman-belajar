@@ -191,9 +191,9 @@ Semua akun demo menggunakan kata sandi yang sama: **`password123`**
 | :--- | :--- | :--- | :--- | :--- |
 | **Admin** | Admin Akademik TB | `admin@temanbelajar.ac.id` | `password123` | Akses penuh dashboard admin (`/admin/dashboard`) |
 | **Tutor 1** | Bintang Pratama | `bintang@temanbelajar.ac.id` | `password123` | Mahasiswa prodi SI, tutor Web & Struktur Data (Gratis) |
-| **Tutor 2** | Nadia Salsabila | `nadia@temanbelajar.ac.id` | `password123` | Mahasiswa prodi SI, tutor Basis Data & Analisis (Gratis) |
+| **Tutor 2** | Sihabudin (Kak Ihab) | `sihabudin@temanbelajar.ac.id` | `password123` | Mahasiswa prodi SI, tutor Basis Data & Analisis (Gratis) |
 | **Tutor 3** | Rian Hidayat | `rian@temanbelajar.ac.id` | `password123` | Mahasiswa prodi TI, tutor Jaringan & AI (Tarif Rp25.000) |
-| **Mahasiswa 1**| Dina Wahyuni | `dina@temanbelajar.ac.id` | `password123` | Mahasiswa pemohon sesi Web I (sudah selesai & diulas) |
+| **Mahasiswa 1**| Ananda Putra Utama | `ananda@temanbelajar.ac.id` (NIM: 20240050086) | `password123` | Mahasiswa pemohon sesi Web I (sudah selesai & diulas) |
 | **Mahasiswa 2**| Fajar Nugroho | `fajar@temanbelajar.ac.id` | `password123` | Mahasiswa pemohon sesi Struktur Data (sudah diulas) |
 | **Mahasiswa 3**| Siti Rahma | `siti@temanbelajar.ac.id` | `password123` | Mahasiswa pemohon sesi Basis Data (sudah diulas) |
 | **Mahasiswa 4**| Arif Wibowo | `arif@temanbelajar.ac.id` | `password123` | Mahasiswa baru, sesi aktif terjadwal |
