@@ -45,9 +45,14 @@ if (!function_exists('base_url')) {
     {
         // Detect script path for XAMPP subfolder support
         $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
-        $subDir = dirname($scriptName);
-        if ($subDir === '/' || $subDir === '\\') {
-            $subDir = '';
+        $subDir = '';
+
+        // Only treat as subfolder if SCRIPT_NAME ends with index.php and is not root/vercel
+        if (str_ends_with($scriptName, 'index.php')) {
+            $dir = str_replace('\\', '/', dirname($scriptName));
+            if ($dir !== '/' && $dir !== '.' && $dir !== '/api' && $dir !== '/public') {
+                $subDir = $dir;
+            }
         }
 
         $base = rtrim($subDir, '/');

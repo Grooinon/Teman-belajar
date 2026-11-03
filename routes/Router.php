@@ -48,9 +48,11 @@ class Router
 
         // Normalize URI by removing base folder when running under XAMPP subdirectories
         $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
-        $baseDir = dirname($scriptName);
-        if ($baseDir !== '/' && $baseDir !== '\\' && str_starts_with($parsedUri, $baseDir)) {
-            $parsedUri = substr($parsedUri, strlen($baseDir));
+        if (str_ends_with($scriptName, 'index.php')) {
+            $baseDir = str_replace('\\', '/', dirname($scriptName));
+            if ($baseDir !== '/' && $baseDir !== '.' && $baseDir !== '/api' && $baseDir !== '/public' && str_starts_with($parsedUri, $baseDir)) {
+                $parsedUri = substr($parsedUri, strlen($baseDir));
+            }
         }
 
         // Also handle /api/index.php or /index.php prefix if present (Vercel & Apache compatibility)
