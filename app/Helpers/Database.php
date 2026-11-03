@@ -27,11 +27,12 @@ class Database
                 self::$activeDriver = 'mysql';
             } else {
                 $c = $config['connections']['sqlite'];
-                $dbDir = dirname($c['database']);
+                $dbPath = self::resolveSqlitePath($c['database']);
+                $dbDir = dirname($dbPath);
                 if (!is_dir($dbDir)) {
                     mkdir($dbDir, 0777, true);
                 }
-                $dsn = "sqlite:{$c['database']}";
+                $dsn = "sqlite:{$dbPath}";
                 self::$instance = new PDO($dsn, null, null, $c['options']);
                 self::$instance->exec('PRAGMA foreign_keys = ON;');
                 self::$activeDriver = 'sqlite';
@@ -41,11 +42,12 @@ class Database
             if ($default === 'mysql') {
                 try {
                     $c = $config['connections']['sqlite'];
-                    $dbDir = dirname($c['database']);
+                    $dbPath = self::resolveSqlitePath($c['database']);
+                    $dbDir = dirname($dbPath);
                     if (!is_dir($dbDir)) {
                         mkdir($dbDir, 0777, true);
                     }
-                    $dsn = "sqlite:{$c['database']}";
+                    $dsn = "sqlite:{$dbPath}";
                     self::$instance = new PDO($dsn, null, null, $c['options']);
                     self::$instance->exec('PRAGMA foreign_keys = ON;');
                     self::$activeDriver = 'sqlite';
@@ -58,6 +60,20 @@ class Database
         }
 
         return self::$instance;
+    }
+
+    private static function resolveSqlitePath(string $originalPath): string
+    {
+        // Support Vercel serverless environment (filesystem is read-only except /tmp)
+        $isVercel = getenv('VERCEL') || isset($_ENV['VERCEL']);
+        if ($isVercel && !str_starts_with($originalPath, '/tmp')) {
+            $tmpDb = '/tmp/temanbelajar.sqlite';
+            if (!file_exists($tmpDb) && file_exists($originalPath)) {
+                copy($originalPath, $tmpDb);
+            }
+            return $tmpDb;
+        }
+        return $originalPath;
     }
 
     public static function getDriver(): string

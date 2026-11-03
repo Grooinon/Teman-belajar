@@ -23,7 +23,13 @@ return [
 
         'sqlite' => [
             'driver' => 'sqlite',
-            'database' => dirname(__DIR__) . '/' . Env::get('DB_SQLITE_PATH', 'storage/database/temanbelajar.sqlite'),
+            'database' => (function () {
+                $path = Env::get('DB_SQLITE_PATH', 'storage/database/temanbelajar.sqlite');
+                if (str_starts_with($path, '/') || (strlen($path) > 2 && $path[1] === ':')) {
+                    return $path;
+                }
+                return dirname(__DIR__) . '/' . $path;
+            })(),
             'options' => [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,

@@ -9,8 +9,8 @@ composer.phar
 
 # Storage & Logs
 storage/logs/*.log
-storage/database/*.sqlite
 storage/database/*.sqlite-journal
+!storage/database/temanbelajar.sqlite
 !storage/database/.gitkeep
 !storage/logs/.gitkeep
 !public/uploads/avatars/.gitkeep
