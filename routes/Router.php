@@ -53,8 +53,10 @@ class Router
             $parsedUri = substr($parsedUri, strlen($baseDir));
         }
 
-        // Also handle /index.php prefix if present
-        if (str_starts_with($parsedUri, '/index.php')) {
+        // Also handle /api/index.php or /index.php prefix if present (Vercel & Apache compatibility)
+        if (str_starts_with($parsedUri, '/api/index.php')) {
+            $parsedUri = substr($parsedUri, 14);
+        } elseif (str_starts_with($parsedUri, '/index.php')) {
             $parsedUri = substr($parsedUri, 10);
         }
 
